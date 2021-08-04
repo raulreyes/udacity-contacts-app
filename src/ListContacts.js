@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class ListContacts extends Component {
-    static PropTypes = {
+    static propTypes = {
         contacts: PropTypes.array.isRequired,
-        onDeleteContacts: PropTypes.func.isRequired,
+        onDeleteContact: PropTypes.func.isRequired,
     }
     state = {
         query: ''
@@ -19,7 +19,7 @@ class ListContacts extends Component {
     }
     render () {
         const { query } = this.state
-        const { contacts, onDeleteContacts, onNavigate } = this.props
+        const { contacts, onDeleteContact, onNavigate } = this.props
 
         const showingContacts = query === ''
             ? contacts
@@ -61,7 +61,7 @@ class ListContacts extends Component {
                                 <p>{contact.handle}</p>
                             </div>
                             <button 
-                            onClick={() => onDeleteContacts(contact)} 
+                            onClick={() => onDeleteContact(contact)} 
                             className='contact-remove'>
                                 Remove
                             </button>                   
